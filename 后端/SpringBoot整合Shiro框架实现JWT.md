@@ -1,4 +1,6 @@
-# java类
+
+
+# Java类
 
 ## JWTFilter
 
@@ -35,4 +37,36 @@ doGetAuthenticationInfo方法根据JWTFilter调用传递的token，验证token�
 ## refresh请求
 
 前端将refresh token传来，请求新的access token。
+
 - todo
+
+## 用户权限发生变化
+当用户团队网站权限、团队权限发生变化，为了防止用户继续使用旧权限的token，服务器会保存用户权限最后发生变化的时间jwt_updated_at。所有请求都会检查token的updated_at，若与数据库不同则要求前端进行refresh请求。
+
+
+
+# Token 格式
+
+## Access token:
+
+```
+{
+	userId,
+	tokenType:'access',
+	role,
+	teamRole,
+	expiresAt,
+	updatedAt,
+}
+```
+
+## Refresh token:
+
+```
+{
+	userId,
+	tokenType:'refresh',
+	expiresAt,
+}
+```
+
