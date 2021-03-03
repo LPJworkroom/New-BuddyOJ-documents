@@ -1,0 +1,68 @@
+[
+  {
+  "creator": {
+    "teamId":5
+  },
+  "type":"prog",
+  "title":"第一道题",
+  "desc":"这是有史以来第一道题目",
+  "tagId":2,
+  "langLim": ["java","cpp"],
+  "timeLim":10,
+  "spaceLim":16,
+  "codeLenLim":1000,
+  "fileId":"b6e5f9b4e87d49d5891e642c2bbf34bb",
+  "isSpj":false
+  },
+  {
+    "creator": {
+      "teamId":5
+    },
+    "type":"fill_in_prog",
+    "title":"第二道题",
+    "desc":"这是有史以来第二道题目",
+    "tagId":3,
+    "langLim": ["java"],
+    "timeLim":10,
+    "spaceLim":16,
+    "codeLenLim":1000,
+    "fileId":"b6e5f9b4e87d49d5891e642c2bbf34bb",
+    "isSpj":false,
+    "code":"printf(\"helloworld\")",
+    "blankCount":3,
+    "blanks": [{"line":1,"ch":2},{"line":2,"ch":3},{"line":4,"ch":5}]
+    },
+    {
+      "creator": {
+        "teamId":5
+      },
+      "type":"fill_in",
+      "title":"第三道题",
+      "question":"填空题题面",
+      "blankCount":"3",
+      "judgeMethod":"default_method",
+      "key":[{"key":["a","b","c"]},{"key":["a","b"]},{"key":["a","b"]}]
+    },
+    {
+      "creator": {
+        "teamId":5
+      },
+      "type":"single_choice",
+      "title":"第四道题",
+      "isMulti":false,
+      "question":"单选题题面",
+      "choice":"单选题选项",
+      "key":["A"]
+    },
+    {
+      "creator": {
+        "teamId":5
+      },
+      "type":"multi_choice",
+      "title":"第五道题",
+      "isMulti":true,
+      "question":"多选题题面",
+      "choice":"多选题选项",
+      "key":["A","C","D"]
+    }
+]
