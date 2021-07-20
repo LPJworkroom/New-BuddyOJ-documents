@@ -1,0 +1,4094 @@
+[
+  {
+    "index": 0,
+    "name": "judge2 评测",
+    "desc": "评测机接口",
+    "add_time": 1612529782,
+    "up_time": 1612529782,
+    "list": [
+      {
+        "query_path": {
+          "path": "/judge/save",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 12,
+        "method": "POST",
+        "title": "judgeSave",
+        "desc": "<p>该接口用于向评测机提交评测请求。<br>\n评测机在完成评测后会向后端发送post请求。<br>\n但该接口本身也存在返回值，用于记录请求是否成功被处理。</p>\n",
+        "path": "/judge/save",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6017cca2af45ce661e8a4323",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"number\"},\"createdTime\":{\"type\":\"string\"},\"probId\":{\"type\":\"number\"},\"userId\":{\"type\":\"number\"},\"code\":{\"type\":\"string\"},\"wrongData\":{\"type\":\"integer\"},\"codeLang\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"result\":{\"type\":\"string\"},\"runTime\":{\"type\":\"integer\"},\"runSpace\":{\"type\":\"integer\"}},\"required\":[\"id\",\"createdTime\",\"probId\",\"userId\",\"code\",\"wrongData\",\"codeLang\",\"status\",\"result\",\"runTime\",\"runSpace\"]}},\"required\":[\"code\",\"msg\",\"data\"]}",
+        "req_body_other": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"number\"},\"createdTime\":{\"type\":\"string\"},\"probId\":{\"type\":\"number\"},\"userId\":{\"type\":\"number\"},\"code\":{\"type\":\"string\"},\"wrongData\":{\"type\":\"null\"},\"codeLang\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"},\"result\":{\"type\":\"null\"},\"runTime\":{\"type\":\"null\"},\"runSpace\":{\"type\":\"null\"}},\"required\":[\"id\",\"createdTime\",\"probId\",\"userId\",\"code\",\"codeLang\",\"status\"]}",
+        "project_id": 10,
+        "catid": 10,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1612531281,
+        "__v": 0,
+        "markdown": "该接口用于向评测机提交评测请求。\n评测机在完成评测后会向后端发送post请求。\n但该接口本身也存在返回值，用于记录请求是否成功被处理。"
+      },
+      {
+        "query_path": {
+          "path": "/judge/judges",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 462,
+        "method": "GET",
+        "catid": 10,
+        "title": "judges",
+        "path": "/judge/judges",
+        "project_id": 10,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 34,
+        "add_time": 1612796690,
+        "up_time": 1612796712,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60215328bcc67450508d1293",
+            "name": "currentPage",
+            "example": "1",
+            "desc": ""
+          }
+        ],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "markdown": "该接口用于返回评测数据（分页）",
+        "desc": "<p>该接口用于返回评测数据（分页）</p>\n",
+        "res_body": ""
+      },
+      {
+        "query_path": {
+          "path": "/prob/save/{probId}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 14,
+        "method": "POST",
+        "title": "probSave",
+        "desc": "<p>该接口用于上传/修改zip格式数据集（若数据集已存在，则新上传的数据集会覆盖原先的数据集）<br>\n数据集格式与原BuddyOJ相同。</p>\n",
+        "path": "/prob/save/{probId}",
+        "req_params": [
+          {
+            "_id": "6017c9e1af45ce661e8a4319",
+            "name": "probId",
+            "example": "1000",
+            "desc": "题目编号"
+          }
+        ],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "6017c9e1af45ce661e8a431b",
+            "name": "file",
+            "type": "file",
+            "desc": "题目数据压缩包（zip格式）"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6017c9e1af45ce661e8a431a",
+            "name": "Content-Type",
+            "value": "multipart/form-data"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"code\":200,\"msg\":\"upload success\",\"data\":null,\"type\":\"string\"}",
+        "project_id": 10,
+        "catid": 10,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1612531281,
+        "__v": 0,
+        "markdown": "该接口用于上传/修改zip格式数据集（若数据集已存在，则新上传的数据集会覆盖原先的数据集）\n数据集格式与原BuddyOJ相同。"
+      },
+      {
+        "query_path": {
+          "path": "/prob/probs",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 461,
+        "method": "GET",
+        "catid": 10,
+        "title": "probs",
+        "path": "/prob/probs",
+        "project_id": 10,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 34,
+        "add_time": 1612796435,
+        "up_time": 1612796485,
+        "req_query": [],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "markdown": "该接口用于返回题目评测数据列表",
+        "desc": "<p>该接口用于返回题目评测数据列表</p>\n",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"number\"},\"submit\":{\"type\":\"number\"},\"isspj\":{\"type\":\"string\"},\"accept\":{\"type\":\"number\"}}}"
+      },
+      {
+        "query_path": {
+          "path": "/judge/rejudge/{id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 463,
+        "method": "POST",
+        "catid": 10,
+        "title": "rejudge",
+        "path": "/judge/rejudge/{id}",
+        "project_id": 10,
+        "req_params": [
+          {
+            "_id": "60215382bcc67450508d1295",
+            "name": "id",
+            "desc": ""
+          }
+        ],
+        "res_body_type": "json",
+        "uid": 34,
+        "add_time": 1612796731,
+        "up_time": 1612796802,
+        "req_query": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "60215382bcc67450508d1296",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_body_form": [],
+        "__v": 0,
+        "markdown": "该接口用于将对应评测记录重测",
+        "desc": "<p>该接口用于将对应评测记录重测</p>\n",
+        "res_body": "",
+        "req_body_type": "form"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "discuss 讨论",
+    "desc": null,
+    "add_time": 1612529782,
+    "up_time": 1612529782,
+    "list": [
+      {
+        "query_path": {
+          "path": "/discuss/probDiscuss",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 24,
+        "method": "POST",
+        "title": "createProbDiscuss 创建题目讨论",
+        "path": "/discuss/probDiscuss",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "605dc727bcc67450508d1348",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "605dc727bcc67450508d1347",
+            "name": "teamId",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "605dc727bcc67450508d1346",
+            "name": "probId",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "605dc727bcc67450508d1345",
+            "name": "title",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "605dc727bcc67450508d1344",
+            "name": "content",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1616758567,
+        "__v": 0,
+        "markdown": "",
+        "desc": ""
+      },
+      {
+        "query_path": {
+          "path": "/discuss",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 26,
+        "method": "DELETE",
+        "title": "deleteDiscuss",
+        "path": "/discuss",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1612531282,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/discuss/post",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 30,
+        "method": "DELETE",
+        "title": "deletePost",
+        "desc": "",
+        "path": "/discuss/post",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fc8d08b14724c3000fd94d5",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1612531282,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/discuss/reply",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 34,
+        "method": "DELETE",
+        "title": "deleteReply",
+        "desc": "",
+        "path": "/discuss/reply",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fc8d09514724c3000fd94d6",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/discuss/blogDiscuss",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 20,
+        "method": "GET",
+        "title": "getBlogDiscuss",
+        "desc": "",
+        "path": "/discuss/blogDiscuss",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1612531282,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/discuss",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 22,
+        "method": "GET",
+        "title": "getDiscuss 获取帖子",
+        "path": "/discuss",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "605b475ebcc67450508d1333",
+            "name": "discussId",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"title\":{\"type\":\"string\"},\"floors\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"content\":{\"type\":\"string\"},\"createdAt\":{\"type\":\"string\"},\"floorNumber\":{\"type\":\"string\"},\"creator\":{\"type\":\"object\",\"properties\":{\"userId\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"avatarId\":{\"type\":\"string\"}},\"required\":[\"userId\",\"avatarId\",\"username\"]},\"replys\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"creator\":{\"type\":\"object\",\"properties\":{\"userId\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"avatarId\":{\"type\":\"string\"}},\"required\":[\"userId\",\"avatarId\",\"username\"]},\"content\":{\"type\":\"string\"},\"createdAt\":{\"type\":\"string\"},\"replyTo\":{\"type\":\"object\",\"properties\":{\"username\":{\"type\":\"string\"},\"userId\":{\"type\":\"string\"}},\"required\":[\"username\",\"userId\"]},\"id\":{\"type\":\"string\"}},\"required\":[\"content\",\"creator\",\"createdAt\",\"replyTo\",\"id\"]}}},\"required\":[\"id\",\"creator\",\"floorNumber\",\"createdAt\",\"content\",\"replys\"]}}},\"required\":[\"title\",\"floors\"]}",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1616760201,
+        "__v": 0,
+        "markdown": "分页接口",
+        "desc": "<p>分页接口</p>\n"
+      },
+      {
+        "query_path": {
+          "path": "/discuss/probDiscuss",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 16,
+        "method": "GET",
+        "title": "getProbDiscussListPage 题目讨论列表",
+        "desc": "<p>分页接口<br>\n后端默认按最后回复时间排序，越新越靠前</p>\n",
+        "path": "/discuss/probDiscuss",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "605dcda5bcc67450508d134d",
+            "name": "teamId",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "605dcda5bcc67450508d134c",
+            "name": "probId",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"discussId\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"},\"creatorName\":{\"type\":\"string\"},\"createdAt\":{\"type\":\"string\"},\"lastReplyAt\":{\"type\":\"string\"},\"floorCount\":{\"type\":\"string\"}},\"required\":[\"discussId\",\"title\",\"createdAt\",\"creatorName\",\"lastReplyAt\",\"floorCount\"]}}",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1616760229,
+        "__v": 0,
+        "markdown": "分页接口\n后端默认按最后回复时间排序，越新越靠前"
+      },
+      {
+        "query_path": {
+          "path": "/discuss/teamDiscuss",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 18,
+        "method": "GET",
+        "title": "getTeamDiscussList",
+        "desc": "",
+        "path": "/discuss/teamDiscuss",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1612531282,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/discuss/floor",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 28,
+        "method": "POST",
+        "title": "replyDiscuss 回复讨论",
+        "desc": "",
+        "path": "/discuss/floor",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "605dc733bcc67450508d134b",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "605dc733bcc67450508d134a",
+            "name": "discussId",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "605dc733bcc67450508d1349",
+            "name": "content",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529783,
+        "up_time": 1616758579,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/discuss/reply",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 32,
+        "method": "POST",
+        "title": "replyFloor 回复楼层",
+        "desc": "",
+        "path": "/discuss/reply",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "605daa63bcc67450508d1343",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "605daa63bcc67450508d1342",
+            "name": "floorId",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "605daa63bcc67450508d1341",
+            "name": "replyId",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "605daa63bcc67450508d1340",
+            "name": "content",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 12,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1616760198,
+        "__v": 0,
+        "markdown": ""
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "blog 博客",
+    "desc": null,
+    "add_time": 1612529782,
+    "up_time": 1612529782,
+    "list": [
+      {
+        "query_path": {
+          "path": "/blog/changeCollectionName",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 48,
+        "method": "PUT",
+        "title": "changeCollectionName",
+        "desc": "",
+        "path": "/blog/changeCollectionName",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fc8d55014724c3000fd94db",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/blog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 56,
+        "method": "POST",
+        "title": "createBlog",
+        "desc": "<p>用户点击创建博客，前端请求，后端返回新博客的id</p>\n",
+        "path": "/blog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fc8d7ad14724c3000fd94eb",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0,
+        "markdown": "用户点击创建博客，前端请求，后端返回新博客的id"
+      },
+      {
+        "query_path": {
+          "path": "/blog/collection",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 44,
+        "method": "POST",
+        "title": "createCollection",
+        "path": "/blog/collection",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/blog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 60,
+        "method": "DELETE",
+        "title": "deleteBlog",
+        "path": "/blog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531283,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/blog/collection",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 46,
+        "method": "DELETE",
+        "title": "deleteCollection",
+        "path": "/blog/collection",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/blog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 58,
+        "method": "GET",
+        "title": "getBlog 获取博客内容",
+        "path": "/blog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60dffa766992370573f4204c",
+            "name": "id",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"id\":{\"type\":\"number\"},\"title\":{\"type\":\"string\"},\"content\":{\"type\":\"string\"},\"collection_id\":{\"type\":\"string\"},\"author_id\":{\"type\":\"string\"},\"author_name\":{\"type\":\"string\"},\"created_at\":{\"type\":\"string\"}},\"required\":[\"id\",\"title\",\"content\",\"collection_id\",\"author_id\",\"author_name\",\"created_at\"]}",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1625291382,
+        "__v": 0,
+        "markdown": "",
+        "desc": ""
+      },
+      {
+        "query_path": {
+          "path": "/blog/collectionBlog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 42,
+        "method": "GET",
+        "title": "getCollectionBlogList 获取文集博客",
+        "desc": "",
+        "path": "/blog/collectionBlog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60dffd2a6992370573f42053",
+            "name": "user_id",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "60dffd2a6992370573f42052",
+            "name": "collection_id",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"number\"},\"title\":{\"type\":\"string\"},\"desc\":{\"type\":\"string\",\"description\":\"文章简介\"},\"author_id\":{\"type\":\"number\"},\"author_name\":{\"type\":\"string\"},\"created_at\":{\"type\":\"string\"}},\"required\":[\"id\",\"title\",\"desc\",\"author_id\",\"author_name\",\"created_at\"]}}",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1625292074,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/blog/probBlog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 36,
+        "method": "GET",
+        "title": "getProbBlogList",
+        "desc": "",
+        "path": "/blog/probBlog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/blog/userBlog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 40,
+        "method": "GET",
+        "title": "getUserBlogList ",
+        "desc": "",
+        "path": "/blog/userBlog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60dffc0f6992370573f4204d",
+            "name": "user_id",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"field_14\":{\"type\":\"string\"}},\"required\":[\"id\",\"field_14\"]}}",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1625291791,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/blog/userCollection",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 38,
+        "method": "GET",
+        "title": "getUserCollectionList",
+        "desc": "",
+        "path": "/blog/userCollection",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/blog/moveBlog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 50,
+        "method": "GET",
+        "title": "moveBlog",
+        "path": "/blog/moveBlog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/blog/postBlog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 52,
+        "method": "PUT",
+        "title": "postBlog",
+        "path": "/blog/postBlog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/blog/recallBlog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 54,
+        "method": "GET",
+        "title": "recallBlog",
+        "desc": "",
+        "path": "/blog/recallBlog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531282,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/blog",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 62,
+        "method": "PUT",
+        "title": "saveBlog 保存博客",
+        "desc": "",
+        "path": "/blog",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "60dff9766992370573f4204b",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 14,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1625291126,
+        "__v": 0,
+        "markdown": "",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"id\":{\"type\":\"number\"},\"title\":{\"type\":\"string\"},\"content\":{\"type\":\"string\"},\"collection_id\":{\"type\":\"number\"}},\"required\":[\"id\",\"title\",\"content\",\"collection_id\"]}"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "team 团队",
+    "desc": null,
+    "add_time": 1612529783,
+    "up_time": 1612529783,
+    "list": [
+      {
+        "query_path": {
+          "path": "/team/identity",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 68,
+        "method": "DELETE",
+        "title": "addTeamIdentity 删除团队身份",
+        "desc": "<p>给出身份id和团队id，~~~~删除团队身份</p>\n",
+        "path": "/team/identity",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "5ff6f1d4d1c8855cfb586d3d",
+            "name": "id",
+            "type": "text",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "5ff6f1d4d1c8855cfb586d3c",
+            "name": "teamId",
+            "type": "text",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5ff6f1d4d1c8855cfb586d3b",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": "给出身份id和团队id，~~~~删除团队身份"
+      },
+      {
+        "query_path": {
+          "path": "/team/identity",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 66,
+        "method": "POST",
+        "title": "addTeamIdentity 增加团队身份",
+        "desc": "<p>添加新团队身份，返回id<br>\n数据库暂时置空，等saveTeamEdit时保存身份的name</p>\n",
+        "path": "/team/identity",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "5ff69e93d1c8855cfb586cfe",
+            "name": "teamId",
+            "type": "text"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5ff69e93d1c8855cfb586cfd",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"id\":{\"type\":\"string\"}},\"required\":[\"id\"]}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": "添加新团队身份，返回id\n数据库暂时置空，等saveTeamEdit时保存身份的name"
+      },
+      {
+        "query_path": {
+          "path": "/team/member/approveAllPendingTeamMember",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 94,
+        "method": "PUT",
+        "title": "approveAllPendingTeamMember 同意所有待审核成员",
+        "desc": "<p>同意所有待审核成员</p>\n",
+        "path": "/team/member/approveAllPendingTeamMember",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "5fec64f7d1c8855cfb5867bd",
+            "name": "teamId",
+            "type": "text"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fec64f7d1c8855cfb5867bc",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": "同意所有待审核成员"
+      },
+      {
+        "query_path": {
+          "path": "/team",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 72,
+        "method": "POST",
+        "title": "createTeam 创建团队",
+        "desc": "",
+        "path": "/team",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5ff464b6d1c8855cfb586a0b",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"avatarId\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"},\"desc\":{\"type\":\"string\"},\"joinMethod\":{\"type\":\"string\"},\"identity\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"只需传身份name即可，后台自动创建新身份\"}},\"required\":[\"avatarId\",\"name\",\"desc\",\"joinMethod\",\"identity\"]}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 76,
+        "method": "PUT",
+        "title": "editTeam 保存团队设置",
+        "desc": "",
+        "path": "/team",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5ff464e0d1c8855cfb586a0c",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"avatarId\":{\"type\":\"integer\"},\"teamId\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"desc\":{\"type\":\"string\"},\"joinMethod\":{\"type\":\"string\"},\"identity\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}}},\"required\":[\"avatarId\",\"name\",\"desc\",\"joinMethod\",\"identity\",\"teamId\"]}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team/member/currentUser",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 86,
+        "method": "GET",
+        "title": "getCurrentUserTeamMember 获得当前用户的成员信息",
+        "desc": "",
+        "path": "/team/member/currentUser",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5ffd6b43d1c8855cfb5872cb",
+            "name": "teamId",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"name\":{\"type\":\"string\"},\"rank\":{\"type\":\"string\"},\"nickname\":{\"type\":\"string\"},\"authority\":{\"type\":\"string\"},\"identity\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}},\"required\":[\"name\",\"rank\",\"identity\",\"authority\",\"nickname\"]}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 74,
+        "method": "GET",
+        "title": "getEditTeam 团队设置回显",
+        "desc": "",
+        "path": "/team",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5ff4648bd1c8855cfb586a0a",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5ff4648bd1c8855cfb586a09",
+            "name": "teamId",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"avatarId\":{\"type\":\"integer\"},\"teamId\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"desc\":{\"type\":\"string\"},\"joinMethod\":{\"type\":\"string\"},\"identity\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}}},\"required\":[\"avatarId\",\"name\",\"desc\",\"joinMethod\",\"identity\",\"teamId\"]}",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"avatarId\":{\"type\":\"integer\"},\"teamId\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"desc\":{\"type\":\"string\"},\"joinMethod\":{\"type\":\"string\"},\"memberTag\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"required\":[\"avatarId\",\"name\",\"desc\",\"joinMethod\",\"memberTag\",\"teamId\"]}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team/member/informalMember",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 96,
+        "method": "GET",
+        "title": "getInformalTeamMemberPage 获得团队非正式成员列表",
+        "desc": "<p>请求团队的待审核与黑名单成员</p>\n",
+        "path": "/team/member/informalMember",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5ff179d6d1c8855cfb586895",
+            "name": "teamId",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "5ff179d6d1c8855cfb586894",
+            "name": "authority",
+            "example": "",
+            "desc": "ENUM('pending',''blacklist)"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": "请求团队的待审核与黑名单成员"
+      },
+      {
+        "query_path": {
+          "path": "/team/myTeamList",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 64,
+        "method": "GET",
+        "title": "getMyTeamList 获取我所在的团队列表",
+        "desc": "",
+        "path": "/team/myTeamList",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5ff56ebfd1c8855cfb586be2",
+            "name": "Authorization",
+            "value": ""
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"team\":{\"type\":\"object\",\"properties\":{\"teamId\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"avatarId\":{\"type\":\"string\"},\"desc\":{\"type\":\"string\"}},\"required\":[\"teamId\",\"desc\",\"avatarId\",\"name\"]},\"authority\":{\"type\":\"string\"},\"identity\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}},\"required\":[\"team\",\"authority\",\"identity\"]}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529784,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team/officialTeamList",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 78,
+        "method": "GET",
+        "title": "getOfficialTeamList 获得官方团队列表",
+        "desc": "",
+        "path": "/team/officialTeamList",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team/getTeamBrief",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 80,
+        "method": "GET",
+        "title": "getTeamBrief 获得团队简介",
+        "desc": "",
+        "path": "/team/getTeamBrief",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5ff178cdd1c8855cfb586876",
+            "name": "teamId",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"avatarId\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"desc\":{\"type\":\"string\"}},\"required\":[\"avatarId\",\"name\",\"desc\"]}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team/identity",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 70,
+        "method": "GET",
+        "title": "getTeamIdentity 获得团队身份列表",
+        "desc": "",
+        "path": "/team/identity",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5ff178a6d1c8855cfb586872",
+            "name": "teamId",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team/teamIndex",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 84,
+        "method": "GET",
+        "title": "getTeamIndex 获得团队主页",
+        "desc": "",
+        "path": "/team/teamIndex",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5ff28533d1c8855cfb5868d3",
+            "name": "teamId",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\"},\"probs\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"},\"acSum\":{\"type\":\"number\"},\"submitSum\":{\"type\":\"string\"},\"userSubmitStatus\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\",\"acSum\",\"userSubmitStatus\",\"submitSum\"]}}},\"required\":[\"title\",\"probs\"]}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team/member/getPage",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 90,
+        "method": "GET",
+        "title": "getTeamMemberPage 获得成员信息",
+        "desc": "<p>请求时提供 团队名片关键字、权限、身份搜索用户</p>\n<p>所有带page的接口，请求参数都要带pageSize 和 pageNumber</p>\n",
+        "path": "/team/member/getPage",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "600195add1c8855cfb587437",
+            "name": "nickname",
+            "desc": ""
+          },
+          {
+            "required": "0",
+            "_id": "600195add1c8855cfb587436",
+            "name": "authority",
+            "example": "",
+            "desc": "权限名"
+          },
+          {
+            "required": "0",
+            "_id": "600195add1c8855cfb587435",
+            "name": "identityId",
+            "example": "",
+            "desc": "身份id"
+          },
+          {
+            "required": "1",
+            "_id": "600195add1c8855cfb587434",
+            "name": "teamId",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"userId\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"rank\":{\"type\":\"string\"},\"nickname\":{\"type\":\"string\"},\"authority\":{\"type\":\"string\"},\"identity\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}},\"required\":[\"userId\",\"name\",\"nickname\",\"rank\",\"identity\",\"authority\"]}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": "请求时提供 团队名片关键字、权限、身份搜索用户\n\n所有带page的接口，请求参数都要带pageSize 和 pageNumber"
+      },
+      {
+        "query_path": {
+          "path": "/team/join",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 100,
+        "method": "PUT",
+        "title": "joinTeam 加入团队",
+        "desc": "",
+        "path": "/team/join",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "6002a636d1c8855cfb587450",
+            "name": "teamId",
+            "type": "text"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6002a636d1c8855cfb58744f",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team/teamIndex",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 82,
+        "method": "PUT",
+        "title": "saveTeamIndex 保存团队主页",
+        "desc": "",
+        "path": "/team/teamIndex",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5ff6f3d7d1c8855cfb586d3f",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"teamId\":{\"type\":\"string\"},\"probSets\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"title\":{\"type\":\"string\"},\"probs\":{\"type\":\"array\",\"items\":{\"type\":\"integer\",\"description\":\"题库中题目id\"}}},\"required\":[\"title\",\"probs\"]}}},\"required\":[\"teamId\",\"probSets\"]}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/team/member/currentUser",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 88,
+        "method": "PUT",
+        "title": "updateCurrentUserTeamMember 修改当前用户的成员信息",
+        "desc": "<p>修改自己的成员信息，type标注修改的哪一项（团队名片，身份）~~~~<br>\n如果是身份，value为身份id</p>\n",
+        "path": "/team/member/currentUser",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "5ffeb459d1c8855cfb587331",
+            "name": "teamId",
+            "type": "text"
+          },
+          {
+            "required": "1",
+            "_id": "5ffeb459d1c8855cfb587330",
+            "name": "type",
+            "type": "text",
+            "example": "",
+            "desc": "ENUM('nickname','identity')"
+          },
+          {
+            "required": "1",
+            "_id": "5ffeb459d1c8855cfb58732f",
+            "name": "value",
+            "type": "text",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5ffeb459d1c8855cfb58732e",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": "修改自己的成员信息，type标注修改的哪一项（团队名片，身份）~~~~\n如果是身份，value为身份id"
+      },
+      {
+        "query_path": {
+          "path": "/team/member/informalMember",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 98,
+        "method": "PUT",
+        "title": "updateInformalTeamMemberAuthority 修改团队非正式成员的权限",
+        "desc": "<p>修改外部成员的权限。包括：同意或拒绝待审核成员，恢复黑名单成员</p>\n",
+        "path": "/team/member/informalMember",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "5fec64c7d1c8855cfb5867bb",
+            "name": "teamId",
+            "type": "text"
+          },
+          {
+            "required": "1",
+            "_id": "5fec64c7d1c8855cfb5867ba",
+            "name": "userId",
+            "type": "text",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "5fec64c7d1c8855cfb5867b9",
+            "name": "type",
+            "type": "text",
+            "example": "",
+            "desc": "ENUM('approve','refuse','retrieve')"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fec64c7d1c8855cfb5867b8",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": "修改外部成员的权限。包括：同意或拒绝待审核成员，恢复黑名单成员"
+      },
+      {
+        "query_path": {
+          "path": "/team/member",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 92,
+        "method": "PUT",
+        "title": "updateTeamMember 更新成员信息",
+        "desc": "<p>修改成员信息，type标注修改的哪一项（团队名片，权限，身份<br>\n如果是身份，value为身份id</p>\n<p>需要测试当用户团队身份被更新后JWTtoken是否过期</p>\n",
+        "path": "/team/member",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "6001a464d1c8855cfb587447",
+            "name": "teamId",
+            "type": "text"
+          },
+          {
+            "required": "1",
+            "_id": "6001a464d1c8855cfb587446",
+            "name": "userId",
+            "type": "text",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "6001a464d1c8855cfb587445",
+            "name": "type",
+            "type": "text",
+            "example": "",
+            "desc": "ENUM('identity','authority','nickname')"
+          },
+          {
+            "required": "1",
+            "_id": "6001a464d1c8855cfb587444",
+            "name": "value",
+            "type": "text",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6001a464d1c8855cfb587443",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 16,
+        "uid": 24,
+        "add_time": 1612529785,
+        "up_time": 1612531283,
+        "__v": 0,
+        "markdown": "修改成员信息，type标注修改的哪一项（团队名片，权限，身份\n如果是身份，value为身份id\n\n需要测试当用户团队身份被更新后JWTtoken是否过期"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "judge 评测",
+    "desc": null,
+    "add_time": 1612529783,
+    "up_time": 1612529783,
+    "list": [
+      {
+        "query_path": {
+          "path": "/judge",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 102,
+        "method": "GET",
+        "title": "getJudge  查询评测结果",
+        "path": "/judge",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "608ff1f63bc65205307f080c",
+            "name": "probId",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "608ff1f63bc65205307f080b",
+            "name": "teamId",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "608ff1f63bc65205307f080a",
+            "name": "examId",
+            "example": "",
+            "desc": "如果查询比赛题目的提交结果，需提交比赛id"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"state\":{\"type\":\"string\",\"description\":\"评测状态（submitted,pending,judging,finnished）\"},\"result\":{\"type\":\"string\",\"description\":\"评测结果\"},\"runTime\":{\"type\":\"string\",\"description\":\"运行时间\"},\"runSpace\":{\"type\":\"string\",\"description\":\"运行空间\"},\"wrongData\":{\"type\":\"string\",\"description\":\"编程题错误数据点的下标\"},\"wrongBlanks\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"description\":\"填空题错误空的下标\"}},\"required\":[\"state\",\"wrongData\",\"runSpace\",\"runTime\",\"result\",\"wrongBlanks\"]}",
+        "project_id": 10,
+        "catid": 18,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1620046326,
+        "__v": 0,
+        "markdown": "<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">普通题的结果：</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">correct,完全正确</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">wrong,错误</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">missed,部分正确（多选题）</span>\n<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">编程题的结果：</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'ac',通过</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'pe',格式错误</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'wa',错误</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'tl',超时</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'ml',超空间</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'ol',输出过长</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'re',运行时错误</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'ce',编译错误</span>\n    <span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'co',未知错误</span>",
+        "desc": "<p><span class=\"colour\" style=\"color:rgb(51, 51, 51)\">普通题的结果：</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">correct,完全正确</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">wrong,错误</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">missed,部分正确（多选题）</span><br>\n<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">编程题的结果：</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'ac',通过</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'pe',格式错误</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'wa',错误</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'tl',超时</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'ml',超空间</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'ol',输出过长</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'re',运行时错误</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'ce',编译错误</span><br>\n&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"colour\" style=\"color:rgb(51, 51, 51)\">'co',未知错误</span></p>\n"
+      },
+      {
+        "query_path": {
+          "path": "/judge/probJudge/getPage",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 104,
+        "method": "GET",
+        "title": "getProbJudgePage",
+        "desc": "",
+        "path": "/judge/probJudge/getPage",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 18,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/judge/userJudge/getPage",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 106,
+        "method": "GET",
+        "title": "getUserJudgePage",
+        "path": "/judge/userJudge/getPage",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 18,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/judge/result",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 108,
+        "method": "POST",
+        "title": "solveJudgeResult  接收评测机结果",
+        "desc": "<p>评测机向该接口发送评测结果，后端保存结果<br>\n后端根据userid+createdTime作为评测的主键<br>\ncode:200 保存成功<br>\n&nbsp; &nbsp; &nbsp; &nbsp; 400 错误<br>\n&nbsp; &nbsp; &nbsp; &nbsp; 500 服务器错误</p>\n",
+        "path": "/judge/result",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "607151d33bc65205307f07f8",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"msg\":{\"type\":\"string\"},\"data\":{\"type\":\"null\"}},\"required\":[\"code\",\"msg\",\"data\"]}",
+        "req_body_other": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"wrongData\":{\"type\":\"integer\",\"description\":\"给出错误数据点编号\"},\"result\":{\"type\":\"string\",\"description\":\"评测结果\"},\"runTime\":{\"type\":\"integer\"},\"runSpace\":{\"type\":\"integer\"},\"userId\":{\"type\":\"string\"},\"createdTime\":{\"type\":\"string\"}},\"required\":[\"wrongData\",\"result\",\"runTime\",\"runSpace\",\"userId\",\"createdTime\"]}",
+        "project_id": 10,
+        "catid": 18,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1618039251,
+        "__v": 0,
+        "markdown": "评测机向该接口发送评测结果，后端保存结果\n后端根据userid+createdTime作为评测的主键\ncode:200 保存成功\n        400 错误\n        500 服务器错误"
+      },
+      {
+        "query_path": {
+          "path": "/judge/homeworkJudge",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 112,
+        "method": "POST",
+        "title": "submitHomeworkJudge",
+        "desc": "",
+        "path": "/judge/homeworkJudge",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fc8eb2314724c3000fd950a",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 18,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/judge",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 114,
+        "method": "POST",
+        "title": "submitJudge 提交题目",
+        "path": "/judge",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6048767cbcc67450508d1300",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 18,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1615361660,
+        "__v": 0,
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"teamId\":{\"type\":\"string\",\"description\":\"团队id和题目id确定一道题目\"},\"probId\":{\"type\":\"string\"},\"examId\":{\"type\":\"string\",\"description\":\"如果是比赛中提交，需要比赛id，否则为空\"},\"answer\":{\"type\":\"string\",\"description\":\"非编程题提交的答案\"},\"code\":{\"type\":\"string\",\"description\":\"编程题的完整代码\"},\"codeLang\":{\"type\":\"string\",\"description\":\"代码的语言\"}},\"required\":[\"teamId\",\"code\",\"answer\",\"probId\",\"examId\",\"codeLang\"]}",
+        "markdown": "如果是比赛中提交，需要比赛id，否则为空\n如果是非编程题，答案保存在answer\n           选择题：无论单选多选answer都保存数组，数组内是选项（大写字母）\n                                answer:[\"A\",\"B\"]\n           填空题：answer保存数组，对应每个空的答案。就算有空没填，也要传空字符串。\n                                answer:[\"一号空的答案\",\"\",\"三号空的答案\"]\n\n如果是编程题，完整代码保存在code。部分编程题则将空中的代码补全至完整代码后再提交。",
+        "desc": "<p>如果是比赛中提交，需要比赛id，否则为空<br>\n如果是非编程题，答案保存在answer<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;选择题：无论单选多选answer都保存数组，数组内是选项（大写字母）<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; answer:[\"A\",\"B\"]<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;填空题：answer保存数组，对应每个空的答案。就算有空没填，也要传空字符串。<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; answer:[\"一号空的答案\",\"\",\"三号空的答案\"]</p>\n<p>如果是编程题，完整代码保存在code。部分编程题则将空中的代码补全至完整代码后再提交。</p>\n"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "store 题库",
+    "desc": null,
+    "add_time": 1612529783,
+    "up_time": 1612529783,
+    "list": [
+      {
+        "query_path": {
+          "path": "/store/refProb",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 124,
+        "method": "GET",
+        "title": "getRefProb -团队引用题目",
+        "desc": "",
+        "path": "/store/refProb",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5fe72cfbd1c8855cfb583f0b",
+            "name": "teamId",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "5fe72cfbd1c8855cfb583f0a",
+            "name": "refTeamId",
+            "example": "",
+            "desc": "全部则置空"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"teamId\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"}},\"required\":[\"id\",\"teamId\",\"title\"]}}",
+        "project_id": 10,
+        "catid": 20,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/store/getAll",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 116,
+        "method": "GET",
+        "title": "getTeamStore 团队题库全部",
+        "desc": "",
+        "path": "/store/getAll",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60069a01d1c8855cfb58779c",
+            "name": "teamId",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"probId\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"},\"acSum\":{\"type\":\"string\"},\"submitSum\":{\"type\":\"string\"},\"submistStatus\":{\"type\":\"string\",\"description\":\"我的提交状态\"},\"isRef\":{\"type\":\"string\"},\"isHide\":{\"type\":\"string\"}},\"required\":[\"probId\",\"title\",\"acSum\",\"submitSum\",\"submistStatus\",\"isHide\",\"isRef\"]}}",
+        "project_id": 10,
+        "catid": 20,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/store",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 118,
+        "method": "GET",
+        "title": "getTeamStorePage -团队题库分页",
+        "desc": "<p>搜索条件置空时相当于不管此条件，全都选</p>\n<p><br data-tomark-pass=\"\"><br>\n<br data-tomark-pass=\"\"></p>\n",
+        "path": "/store",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "607153c63bc65205307f07ff",
+            "name": "teamId",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "607153c63bc65205307f07fe",
+            "name": "keyword",
+            "example": "",
+            "desc": "id或题目名字"
+          },
+          {
+            "required": "1",
+            "_id": "607153c63bc65205307f07fd",
+            "name": "tagId",
+            "example": "",
+            "desc": "算法标签id"
+          },
+          {
+            "required": "1",
+            "_id": "607153c63bc65205307f07fc",
+            "name": "isRef",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "607153c63bc65205307f07fb",
+            "name": "isHide",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "607153c63bc65205307f07fa",
+            "name": "sortKey",
+            "example": "ENUM('probId','acRate')",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "607153c63bc65205307f07f9",
+            "name": "isAsc",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"probId\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"},\"acSum\":{\"type\":\"string\"},\"submitSum\":{\"type\":\"string\"},\"submitStatus\":{\"type\":\"string\",\"description\":\"我的提交状态\"},\"isRef\":{\"type\":\"string\"},\"isHide\":{\"type\":\"string\"},\"type\":{\"type\":\"string\",\"description\":\"题目类型\"}},\"required\":[\"probId\",\"title\",\"acSum\",\"submitSum\",\"submitStatus\",\"isHide\",\"isRef\",\"type\"]}}",
+        "project_id": 10,
+        "catid": 20,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1618039750,
+        "__v": 0,
+        "markdown": "搜索条件置空时相当于不管此条件，全都选\n\n<br>\n<br>\n"
+      },
+      {
+        "query_path": {
+          "path": "/store/totalStore",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 120,
+        "method": "GET",
+        "title": "getTotalStorePage -总题库",
+        "desc": "",
+        "path": "/store/totalStore",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60069a6cd1c8855cfb5877b6",
+            "name": "keyword",
+            "example": "",
+            "desc": "id或题目名字"
+          },
+          {
+            "required": "1",
+            "_id": "60069a6cd1c8855cfb5877b5",
+            "name": "tag",
+            "example": "",
+            "desc": "算法标签id"
+          },
+          {
+            "required": "1",
+            "_id": "60069a6cd1c8855cfb5877b4",
+            "name": "isHide",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "60069a6cd1c8855cfb5877b3",
+            "name": "sortKey",
+            "example": "ENUM('id','acRate')",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "60069a6cd1c8855cfb5877b2",
+            "name": "isAcs",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"probId\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"},\"acSum\":{\"type\":\"string\"},\"submitSum\":{\"type\":\"string\"},\"submistStatus\":{\"type\":\"string\",\"description\":\"我的提交状态\"},\"isHide\":{\"type\":\"string\"}},\"required\":[\"probId\",\"title\",\"acSum\",\"submitSum\",\"submistStatus\",\"isHide\"]}}",
+        "project_id": 10,
+        "catid": 20,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/store/refProb",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 122,
+        "method": "POST",
+        "title": "saveRefProb -保存团队引用题目",
+        "desc": "",
+        "path": "/store/refProb",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "60069a99d1c8855cfb5877b9",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60069a99d1c8855cfb5877b8",
+            "name": "teamId",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "60069a99d1c8855cfb5877b7",
+            "name": "refTeamId",
+            "example": "",
+            "desc": "全部则置空"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{}}}",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"teamId\":{\"type\":\"string\"},\"refProbs\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"description\":\"id\"}}},\"required\":[\"teamId\",\"refProbs\"]}",
+        "project_id": 10,
+        "catid": 20,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": ""
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "problem 题目",
+    "desc": null,
+    "add_time": 1612529783,
+    "up_time": 1612529783,
+    "list": [
+      {
+        "query_path": {
+          "path": "/problem",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 130,
+        "method": "POST",
+        "title": "createProb  -创建题目",
+        "desc": "<p>本接口请求数据同题目编辑回显的返回数据一致，只不过不需要probId，只需要teamId</p>\n",
+        "path": "/problem",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "6044786cbcc67450508d12ab",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"prob_id\":{\"type\":\"string\"}},\"required\":[\"prob_id\"]}",
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 22,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1615100012,
+        "__v": 0,
+        "markdown": "本接口请求数据同题目编辑回显的返回数据一致，只不过不需要probId，只需要teamId"
+      },
+      {
+        "query_path": {
+          "path": "/problem",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 132,
+        "method": "GET",
+        "title": "getProb -获取题目内容",
+        "desc": "<p>所有题都有的字段：</p>\n<pre><code>{\n  probId,\n&nbsp;&nbsp;title,\n&nbsp;&nbsp;tagId,\n  \"creator\": {\n&nbsp;&nbsp;&nbsp;&nbsp;userId,\n    username,\n    teamId,\n    teamName\n  },\n  type,\n  acSum,\n  submitSum,\n  acRate,\n  //下面三个属性属于store\n  isHide,\n&nbsp;&nbsp;isDiscussHide,\n  isBlogHide\n}\n</code></pre>\n<p>编程题额外数据：</p>\n<pre><code>{\n  desc,\n  \"langLim\": [],\n  timeLim,\n  spaceLim,\n  codeLenLim,\n}\n部分编程题在此基础上还有：\n{\n  code,\n  blankCount,\n  \"blanks\": [\n&nbsp;&nbsp;&nbsp;&nbsp;{\n      line,\n      ch\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\n&nbsp;&nbsp;&nbsp;&nbsp;]\n}\n</code></pre>\n<p>填空题额外数据：</p>\n<pre><code>{\n  question,\n  blankCnt,\n}\n</code></pre>\n<p>选择题额外数据：~~~~</p>\n<pre><code>{\n  isMulti,\n  question,\n  choice, //填空题选项，保存和获取时都保留前端传来的json格式\n}\n</code></pre>\n",
+        "path": "/problem",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "6045c807bcc67450508d12cd",
+            "name": "probId",
+            "desc": "题库id"
+          },
+          {
+            "required": "1",
+            "_id": "6045c807bcc67450508d12cc",
+            "name": "teamId",
+            "example": "",
+            "desc": "团队id"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"type\":{\"type\":\"string\",\"description\":\"ENUM('prog','fill_in_prog','fill_in','single_choice','multi_choice')\\t\"},\"isHide\":{\"type\":\"string\"},\"isDiscussHide\":{\"type\":\"string\"},\"isBlogHide\":{\"type\":\"string\"},\"title\":{\"type\":\"string\"},\"creator\":{\"type\":\"object\",\"properties\":{\"userId\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"teamName\":{\"type\":\"string\"},\"teamId\":{\"type\":\"string\"}},\"required\":[\"userId\",\"teamId\",\"teamName\",\"username\"]},\"submitSum\":{\"type\":\"string\"},\"acSum\":{\"type\":\"string\"},\"desc\":{\"type\":\"string\"},\"tag\":{\"type\":\"string\",\"description\":\"算法标签id\"},\"langLim\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"timeLim\":{\"type\":\"string\"},\"spaceLim\":{\"type\":\"string\"},\"codeLenLim\":{\"type\":\"string\"},\"fileId\":{\"type\":\"string\",\"description\":\"数据集id（只有编程类题目有）\"}},\"required\":[\"type\",\"isHide\",\"isBlogHide\",\"isDiscussHide\",\"title\",\"creator\",\"submitSum\",\"acSum\",\"spaceLim\",\"timeLim\",\"langLim\",\"tag\",\"desc\",\"codeLenLim\",\"fileId\"]}",
+        "project_id": 10,
+        "catid": 22,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1615185927,
+        "__v": 0,
+        "markdown": "所有题都有的字段：\n\n```\n{\n  probId,\n  title,\n  tagId,\n  \"creator\": {\n    userId,\n    username,\n    teamId,\n    teamName\n  },\n  type,\n  acSum,\n  submitSum,\n  acRate,\n  //下面三个属性属于store\n  isHide,\n  isDiscussHide,\n  isBlogHide\n}\n```\n\n编程题额外数据：\n\n```\n{\n  desc,\n  \"langLim\": [],\n  timeLim,\n  spaceLim,\n  codeLenLim,\n}\n部分编程题在此基础上还有：\n{\n  code,\n  blankCount,\n  \"blanks\": [\n    {\n      line,\n      ch\n        }\n    ]\n}\n```\n\n填空题额外数据：\n\n```\n{\n  question,\n  blankCnt,\n}\n```\n\n选择题额外数据：~~~~\n\n```\n{\n  isMulti,\n  question,\n  choice, //填空题选项，保存和获取时都保留前端传来的json格式\n}\n```"
+      },
+      {
+        "query_path": {
+          "path": "/problem/config",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 134,
+        "method": "GET",
+        "title": "getProbConfig -题目编辑回显",
+        "desc": "<p>只有题目所属团队的creator、admin可以获得<br>\n本接口的返回数据是在getProb获取题目内容接口的基础上，再加上其他数据<br>\n所有题都有的字段：</p>\n<pre><code>与getProb接口一致\n</code></pre>\n<p>编程题额外包括：</p>\n<pre><code>{\n&nbsp;&nbsp;&nbsp;&nbsp;fileId, //数据集的文件id\n&nbsp;&nbsp;&nbsp;&nbsp;isSpj\n}\n\n部分编程题在原本基础上还包括：\n与getProb接口一致\n</code></pre>\n<p>填空题额外包括：</p>\n<pre><code>{\n&nbsp;&nbsp;&nbsp;&nbsp;judgeMethod,  //默认是\"default_method\"\n&nbsp;&nbsp;&nbsp;&nbsp;blankCount, //空的数量，必须与key一致\n&nbsp;&nbsp;&nbsp;&nbsp;key:[&nbsp;&nbsp;&nbsp;&nbsp;//空的答案\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{key:[]}\n&nbsp;&nbsp;&nbsp;&nbsp;]\n}\n</code></pre>\n<p>选择题额外数据：~~~~</p>\n<pre><code>{\n&nbsp;&nbsp;&nbsp;&nbsp;key:[] //答案\n}\n</code></pre>\n",
+        "path": "/problem/config",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60476b95bcc67450508d12fe",
+            "name": "probId",
+            "desc": "题库id"
+          },
+          {
+            "required": "1",
+            "_id": "60476b95bcc67450508d12fd",
+            "name": "teamId",
+            "example": "",
+            "desc": "团队id"
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 22,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1615293333,
+        "__v": 0,
+        "markdown": "只有题目所属团队的creator、admin可以获得\n本接口的返回数据是在getProb获取题目内容接口的基础上，再加上其他数据\n所有题都有的字段：\n\n```\n与getProb接口一致\n```\n\n编程题额外包括：\n\n```\n{\n    fileId, //数据集的文件id\n    isSpj\n}\n\n部分编程题在原本基础上还包括：\n与getProb接口一致\n```\n\n填空题额外包括：\n\n```\n{\n    judgeMethod,  //默认是\"default_method\"\n    blankCount, //空的数量，必须与key一致\n    key:[    //空的答案\n        {key:[]}\n    ]\n}\n```\n\n选择题额外数据：~~~~\n\n```\n{\n    key:[] //答案\n}\n```"
+      },
+      {
+        "query_path": {
+          "path": "/problem/tagList",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 126,
+        "method": "GET",
+        "title": "getTagList -算法标签列表",
+        "desc": "",
+        "path": "/problem/tagList",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\"]}}",
+        "project_id": 10,
+        "catid": 22,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/problem/userLastSubmit",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 128,
+        "method": "GET",
+        "title": "getUserLastSubmit 获取用户题目最后一次提交",
+        "desc": "",
+        "path": "/problem/userLastSubmit",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "60052bd0d1c8855cfb58749f",
+            "name": "userId",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "60052bd0d1c8855cfb58749e",
+            "name": "id",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 22,
+        "uid": 24,
+        "add_time": 1612529786,
+        "up_time": 1612531284,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/problem/config",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 136,
+        "method": "PUT",
+        "title": "saveProbConfig -保存题目编辑",
+        "desc": "<p>结构同创建题目，只是多一个id<br>\n不可以改变题目类型</p>\n",
+        "path": "/problem/config",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "60447882bcc67450508d12af",
+            "name": "id",
+            "type": "text"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "60447882bcc67450508d12ae",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 22,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1615100034,
+        "__v": 0,
+        "markdown": "结构同创建题目，只是多一个id\n不可以改变题目类型"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "exam 考试",
+    "desc": null,
+    "add_time": 1612529783,
+    "up_time": 1612529783,
+    "list": [
+      {
+        "query_path": {
+          "path": "/exam",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 138,
+        "method": "POST",
+        "title": "createExam",
+        "path": "/exam",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 24,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531284,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/exam",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 140,
+        "method": "PUT",
+        "title": "editExam",
+        "path": "/exam",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 24,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/exam/exportExamLeaderboard",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 144,
+        "method": "GET",
+        "title": "exportExamLeaderboard",
+        "path": "/exam/exportExamLeaderboard",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 24,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/exam",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 142,
+        "method": "GET",
+        "title": "getExamDetail",
+        "desc": "",
+        "path": "/exam",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 24,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/exam/leaderboard",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 146,
+        "method": "GET",
+        "title": "getExamLeaderboard",
+        "desc": "",
+        "path": "/exam/leaderboard",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 24,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/exam/getExamList",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 148,
+        "method": "GET",
+        "title": "getExamList",
+        "desc": "",
+        "path": "/exam/getExamList",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 24,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/exam/userExamProgress",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 150,
+        "method": "GET",
+        "title": "getUserExamProgress",
+        "path": "/exam/userExamProgress",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 24,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "homework 作业",
+    "desc": null,
+    "add_time": 1612529783,
+    "up_time": 1612529783,
+    "list": [
+      {
+        "query_path": {
+          "path": "/homework",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 152,
+        "method": "POST",
+        "title": "createHomework",
+        "desc": "",
+        "path": "/homework",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fd8730fdce9d4927142ef1d",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 26,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/homework",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 154,
+        "method": "PUT",
+        "title": "editHomework",
+        "desc": "",
+        "path": "/homework",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fd87329dce9d4927142ef1e",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 26,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/homework/exportHomeworkLeaderboard",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 158,
+        "method": "GET",
+        "title": "exportHomeworkLeaderboard",
+        "desc": "",
+        "path": "/homework/exportHomeworkLeaderboard",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 26,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/homework",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 156,
+        "method": "GET",
+        "title": "getHomeworkDetail",
+        "path": "/homework",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 26,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/homework/leaderboard",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 160,
+        "method": "GET",
+        "title": "getHomeworkLeaderboard",
+        "desc": "",
+        "path": "/homework/leaderboard",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 26,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/homework/getHomeworkList",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": false,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 162,
+        "method": "GET",
+        "title": "getHomeworkList",
+        "path": "/homework/getHomeworkList",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{}",
+        "project_id": 10,
+        "catid": 26,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/homework/userHomeworkProgress",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 164,
+        "method": "GET",
+        "title": "getUserHomeworkProgress",
+        "desc": "",
+        "path": "/homework/userHomeworkProgress",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 26,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "文件 file",
+    "desc": null,
+    "add_time": 1612529783,
+    "up_time": 1612529783,
+    "list": [
+      {
+        "query_path": {
+          "path": "/file",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 166,
+        "method": "GET",
+        "title": "getFile -获得文件",
+        "desc": "<p>返回文件二进制流</p>\n",
+        "path": "/file",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "603f4f7fbcc67450508d12a3",
+            "name": "id",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"string\"}",
+        "project_id": 10,
+        "catid": 28,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1614761855,
+        "__v": 0,
+        "markdown": "返回文件二进制流"
+      },
+      {
+        "query_path": {
+          "path": "/file/fileInfo",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 464,
+        "method": "GET",
+        "catid": 28,
+        "title": "getFileInfo 获得文件信息",
+        "path": "/file/fileInfo",
+        "project_id": 10,
+        "req_params": [],
+        "res_body_type": "json",
+        "uid": 24,
+        "add_time": 1614761869,
+        "up_time": 1614788662,
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "603fb82fbcc67450508d12a6",
+            "name": "fileId",
+            "desc": ""
+          }
+        ],
+        "req_headers": [],
+        "req_body_form": [],
+        "__v": 0,
+        "markdown": "",
+        "desc": "",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"type\":{\"type\":\"string\",\"description\":\"文件后缀\"},\"fileName\":{\"type\":\"string\",\"description\":\"不含后缀的文件名\"}},\"required\":[\"type\",\"fileName\"]}"
+      },
+      {
+        "query_path": {
+          "path": "/pic",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 170,
+        "method": "GET",
+        "title": "getPic -获得图片",
+        "desc": "",
+        "path": "/pic",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fef2a97d1c8855cfb586859",
+            "name": "Authorization",
+            "value": ""
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5fef2a97d1c8855cfb586858",
+            "name": "picId",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 28,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/pic/testGetPic",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 174,
+        "method": "GET",
+        "title": "testGetPic",
+        "desc": "",
+        "path": "/pic/testGetPic",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5ff5b4ced1c8855cfb586cd0",
+            "name": "picId",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 28,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/file",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 168,
+        "method": "POST",
+        "title": "uploadFile -上传文件",
+        "desc": "",
+        "path": "/file",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "601154beaf45ce661e8a3eb2",
+            "name": "file",
+            "type": "file"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "601154beaf45ce661e8a3eb1",
+            "name": "Content-Type",
+            "value": "multipart/form-data"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"}},\"required\":[\"id\"]}",
+        "project_id": 10,
+        "catid": 28,
+        "uid": 24,
+        "add_time": 1612529787,
+        "up_time": 1612531285,
+        "__v": 0,
+        "req_body_other": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/pic",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 172,
+        "method": "POST",
+        "title": "uploadPic -上传图片",
+        "desc": "<p><br data-tomark-pass=\"\"><br>\n<br data-tomark-pass=\"\"></p>\n",
+        "path": "/pic",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "5fef33edd1c8855cfb586868",
+            "name": "image",
+            "type": "file"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fef33edd1c8855cfb586867",
+            "name": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "required": "1",
+            "_id": "5fef33edd1c8855cfb586866",
+            "name": "Authorization",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"picId\":{\"type\":\"string\"}},\"required\":[\"picId\"]}",
+        "project_id": 10,
+        "catid": 28,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531285,
+        "__v": 0,
+        "req_body_other": "",
+        "markdown": "<br>\n<br>\n"
+      }
+    ]
+  },
+  {
+    "index": 0,
+    "name": "account 账号",
+    "desc": null,
+    "add_time": 1612529783,
+    "up_time": 1612529783,
+    "list": [
+      {
+        "query_path": {
+          "path": "/account/forgetVertify",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 186,
+        "method": "POST",
+        "title": "forgetVertify",
+        "desc": "",
+        "path": "/account/forgetVertify",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fd07fa4dce9d4927142d0ad",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5fd07fa4dce9d4927142d0ac",
+            "name": "principle",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "5fd07fa4dce9d4927142d0ab",
+            "name": "vertifyCode",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 30,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531286,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/account/login",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 176,
+        "method": "POST",
+        "title": "login 登录",
+        "desc": "<p>登陆成功，两个token，但不返回个人信息</p>\n<p>已测试：<br>\n1 错误principle或password</p>\n",
+        "path": "/account/login",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5feab64cd1c8855cfb5864e0",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "5feab64cd1c8855cfb5864df",
+            "name": "principle",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "5feab64cd1c8855cfb5864de",
+            "name": "password",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"refreshToken\":{\"type\":\"string\"},\"accessToken\":{\"type\":\"string\"}},\"required\":[\"refreshToken\",\"accessToken\"]}",
+        "project_id": 10,
+        "catid": 30,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": "登陆成功，两个token，但不返回个人信息\n\n已测试：\n1 错误principle或password"
+      },
+      {
+        "query_path": {
+          "path": "/account/refresh",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 182,
+        "method": "POST",
+        "title": "refresh 更新accessToken",
+        "desc": "<p>前端提供refreshtoken，后端生成新accessToken<br>\n已测试：<br>\n1 错误的refreshToken</p>\n",
+        "path": "/account/refresh",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fe98836d1c8855cfb5863e9",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "required": "1",
+            "_id": "5fe98836d1c8855cfb5863e8",
+            "name": "Authorization",
+            "value": "",
+            "desc": "登陆成功返回的refreshToken"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"string\",\"description\":\"新的accessToken\"}",
+        "project_id": 10,
+        "catid": 30,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": "前端提供refreshtoken，后端生成新accessToken\n已测试：\n1 错误的refreshToken"
+      },
+      {
+        "query_path": {
+          "path": "/account/register",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 184,
+        "method": "POST",
+        "title": "register 注册",
+        "desc": "<p>注册新用户<br>\n已测试：<br>\n1 注册已存在principle<br>\n2 注册已存在username</p>\n",
+        "path": "/account/register",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "5fe97586d1c8855cfb5863e5",
+            "name": "principle",
+            "type": "text"
+          },
+          {
+            "required": "1",
+            "_id": "5fe97586d1c8855cfb5863e4",
+            "name": "username",
+            "type": "text",
+            "example": "",
+            "desc": ""
+          },
+          {
+            "required": "1",
+            "_id": "5fe97586d1c8855cfb5863e3",
+            "name": "password",
+            "type": "text",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fe97586d1c8855cfb5863e2",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 30,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531286,
+        "__v": 0,
+        "markdown": "注册新用户\n已测试：\n1 注册已存在principle\n2 注册已存在username"
+      },
+      {
+        "query_path": {
+          "path": "/account/resetPw",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 188,
+        "method": "POST",
+        "title": "resetPw",
+        "desc": "",
+        "path": "/account/resetPw",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "5fd07f97dce9d4927142d0aa",
+            "name": "principle",
+            "type": "text"
+          },
+          {
+            "required": "1",
+            "_id": "5fd07f97dce9d4927142d0a9",
+            "name": "password",
+            "type": "text",
+            "example": "",
+            "desc": ""
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fd07f97dce9d4927142d0a8",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 30,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531286,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/account/sendVertifyCode",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 190,
+        "method": "POST",
+        "title": "sendVertifyCode",
+        "desc": "",
+        "path": "/account/sendVertifyCode",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "1",
+            "_id": "5fd07fd9dce9d4927142d0af",
+            "name": "principle",
+            "type": "text"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "5fd07fd9dce9d4927142d0ae",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "",
+        "project_id": 10,
+        "catid": 30,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531286,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/account/test",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 178,
+        "method": "GET",
+        "title": "test 测试登录状态",
+        "desc": "<p>需要jwtToken的接口，用于测试登录状态</p>\n",
+        "path": "/account/test",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{}}",
+        "project_id": 10,
+        "catid": 30,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1612531285,
+        "__v": 0,
+        "markdown": "需要jwtToken的接口，用于测试登录状态"
+      },
+      {
+        "query_path": {
+          "path": "/account/testUserInfo",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [],
+        "_id": 180,
+        "method": "GET",
+        "title": "testGetUserInfo 测试 获取用户基本信息",
+        "desc": "",
+        "path": "/account/testUserInfo",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "605d9106bcc67450508d1334",
+            "name": "Authorization",
+            "value": "",
+            "desc": "jwt accessToken，只有登录后的人才能查询"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "raw",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"userId\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"avatarId\":{\"type\":\"string\"},\"teamRoles\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"teamId\":{\"type\":\"string\"},\"authority\":{\"type\":\"string\"}},\"required\":[\"teamId\",\"authority\"]}}},\"required\":[\"userId\",\"username\",\"teamRoles\",\"avatarId\"]}",
+        "project_id": 10,
+        "catid": 30,
+        "uid": 24,
+        "add_time": 1612529788,
+        "up_time": 1616744710,
+        "__v": 0,
+        "markdown": ""
+      }
+    ]
+  }
+]

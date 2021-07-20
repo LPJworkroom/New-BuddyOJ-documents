@@ -1,19 +1,22 @@
 [
   {
-  "creator": {
-    "teamId":5
-  },
-  "type":"prog",
-  "title":"第一道题",
-  "desc":"这是有史以来第一道题目",
-  "tagId":2,
-  "langLim": ["java","cpp"],
-  "timeLim":10,
-  "spaceLim":16,
-  "codeLenLim":1000,
-  "fileId":"b6e5f9b4e87d49d5891e642c2bbf34bb",
-  "isSpj":false
-  },
+    "creator": {
+      "teamId":5
+    },
+    "type":"prog",
+    "title":"第一道题",
+    "desc":"这是有史以来第一道题目",
+    "tagId":2,
+    "langLim": ["java","cpp"],
+    "timeLim":10,
+    "spaceLim":16,
+    "codeLenLim":1000,
+    "fileId":"b6e5f9b4e87d49d5891e642c2bbf34bb",
+    "isSpj":false,
+    "isHide":true,
+    "isBlogHide":false,
+    "isDiscussHide":false
+    },
   {
     "creator": {
       "teamId":5
@@ -41,7 +44,10 @@
       "question":"填空题题面",
       "blankCount":"3",
       "judgeMethod":"default_method",
-      "key":[{"key":["a","b","c"]},{"key":["a","b"]},{"key":["a","b"]}]
+      "key":[{"key":["a","b","c"]},{"key":["a","b"]},{"key":["a","b"]}],
+      "isHide":true,
+      "isBlogHide":false,
+      "isDiscussHide":false
     },
     {
       "creator": {
@@ -52,7 +58,10 @@
       "isMulti":false,
       "question":"单选题题面",
       "choice":"单选题选项",
-      "key":["A"]
+      "key":["A"],
+      "isHide":true,
+      "isBlogHide":false,
+      "isDiscussHide":false
     },
     {
       "creator": {
@@ -63,6 +72,9 @@
       "isMulti":true,
       "question":"多选题题面",
       "choice":"多选题选项",
-      "key":["A","C","D"]
+      "key":["A","C","D"],
+      "isHide":true,
+      "isBlogHide":false,
+      "isDiscussHide":false
     }
 ]
