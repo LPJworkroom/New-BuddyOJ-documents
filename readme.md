@@ -8,3 +8,6 @@
 
 页面设计补充（由于免费的墨刀一个项目只能20个页面，所以不得不开一个新项目） https://modao.cc/app/21e9a9b4c964b1ffd362cd14525cd1df7db2f99a?simulator_type=device&sticky
 
+接口文档，yapi项目 http://121.199.18.14:3000/
+
+yapi使用文档 https://github.com/YMFE/yapi
